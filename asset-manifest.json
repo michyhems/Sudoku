@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Sudoku/static/css/main.20c85702.css",
+    "main.js": "/Sudoku/static/js/main.1441e4dd.js",
+    "static/js/453.6028d261.chunk.js": "/Sudoku/static/js/453.6028d261.chunk.js",
+    "static/media/NightBackground.jpeg": "/Sudoku/static/media/NightBackground.e48ace96d770ff2cf0db.jpeg",
+    "static/media/DayBackground.jpeg": "/Sudoku/static/media/DayBackground.72d7e9381dbb8c231e3d.jpeg",
+    "static/media/logo.svg": "/Sudoku/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Sudoku/index.html",
+    "main.20c85702.css.map": "/Sudoku/static/css/main.20c85702.css.map",
+    "main.1441e4dd.js.map": "/Sudoku/static/js/main.1441e4dd.js.map",
+    "453.6028d261.chunk.js.map": "/Sudoku/static/js/453.6028d261.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20c85702.css",
+    "static/js/main.1441e4dd.js"
+  ]
+}
