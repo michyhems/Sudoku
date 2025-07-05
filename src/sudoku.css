@@ -1,0 +1,134 @@
+body{
+    background-image: url("./images/NightBackground.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#daytime{
+    background-image: url("./images/DayBackground.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+    height: 100vh;
+    position: absolute;
+}
+
+#finishedBanner{
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    filter: blur(2px);
+    width:100%;
+    height: 100vh;
+    position: absolute;
+    display: none;
+}
+#message{
+    position: absolute;
+    width:40%;
+    margin-left: 30%;
+    margin-top: 21%;
+    display: none;
+    color: blue;
+}
+
+#tryAgain:hover{
+    cursor: pointer;
+}
+
+.parent{
+    width: 40%;
+    border: solid grey 2px;
+    margin:auto;
+    aspect-ratio: 1 / 1;
+    margin-top: 6%;
+    float: left;
+    margin-left: 6%;
+    background-color: rgba(255,255,255,0.5) !important;
+    position: absolute;
+
+}
+.cell,.editCell{
+    width:100%;
+    aspect-ratio: 1/1;
+    border: solid grey 2px;
+    text-align: center;
+    justify-content: center;
+    font-size: 3.3em;
+    display: flex;
+}
+
+
+
+#modeSwitch{
+    margin-left: 57%;
+    margin-top: 8%;
+    height: fit-content;
+    position: absolute;
+}
+
+.keyPad{
+    width:25%;
+    aspect-ratio: 1 / 1;
+    margin-left: 57%;
+    margin-top: 21%;
+    position: absolute;
+}
+
+.lightKey, .darkKey{
+    border: transparent;
+    border-radius: 10%;
+    margin-top: 4%;
+    width: 96%;
+    aspect-ratio: 1/1;
+    text-align: center;
+    justify-content: center;
+    font-size: 6em;
+    display: flex;
+}
+
+.lightKey{
+    background-image: linear-gradient(#a7a7a7, #dadada);
+    color: #4c4c4c;
+    border-color: white;
+}
+
+.darkKey{
+    background-image: linear-gradient(#1E1F1F,#4C4E4E);
+    color: white;
+}
+.lightKey:hover{
+    cursor: pointer;
+}
+
+.darkKey:hover{
+    cursor: pointer;
+}
+
+.lightKey:active{
+    background-image: linear-gradient(#a7a7a7, #a7a7a7);
+}
+
+
+.darkKey:active{
+    background-image: linear-gradient(#1E1F1F, #1E1F1F);
+}
+
+.instructions{
+    color: black;
+    position: absolute;
+    width: 25%;
+    margin-left: 57.5%;
+    text-align: left;
+    margin-top: 15%;
+}
+
+.sudokuTitle{
+    position: absolute;
+    width: 10%;
+    margin-left: 45%;
+    margin-top: 1.5%;
+}
+
+#bibliography{
+    z-index: 10;
+    color: red;
+}
