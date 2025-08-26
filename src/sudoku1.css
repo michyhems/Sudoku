@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+:root{
+    --text-colour: white;
+    --highlight-colour: #5E3F64;
+    --success-banner: #ffffff80;
+    --text-accent: blue;
+    --border-colour: rgba(255, 255, 255, 0.2);
+    --cell-colour:rgba(255, 255, 255, 0.1);
+    --sun-animation: rise 1s linear forwards;
+    --ocean:radial-gradient(circle at top, #b284be,#744E7B, #5E3F64);
+}
+
+.darkmode{
+    --text-colour: white;
+    --highlight-colour: #003366;
+    --success-banner: rgba(0, 0, 0, 0.5);
+    --text-accent: orange;
+    --sun-animation: set 1s linear forwards;
+    --ocean:radial-gradient(circle at top, #0f52ba, #003366);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+h1{
+    font-family: Poppins;
+}
+.bodyContent{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    color: var(--text-colour);
+}
+
+.scene{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.sky, .ocean{
+    width: 100%;
+    height: 50%;
+}
+/*
+background-color: #a40606;
+background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+*/
+.sky{
+    background-color: rgb(0, 0, 54);
+    background-image: radial-gradient(circle at bottom,#a73030 0%,#d98324 70%,rgb(1, 1, 99) 200%, transparent);
+    position: relative;
+    -webkit-box-reflect: below 0 linear-gradient(transparent,rgba(0,0,0,0.5));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    overflow: hidden;
+}
+
+@property --night{
+    syntax: "<number>";
+    initial-value: 1;
+    inherits: false;
+}
+@property --sunset{
+    syntax: "<percentage>";
+    initial-value: 70%;
+    inherits: false;
+}
+@property --start-night{
+    syntax: "<percentage>";
+    initial-value: 150%;
+    inherits: false;
+}
+
+.darksky{
+    background-image: radial-gradient(circle at bottom,#a73030 0%,rgb(217, 131, 36, var(--night)) var(--sunset),rgb(1, 1, 99) var(--start-night), transparent);
+    animation: darksky 0.75s linear forwards;
+}
+
+@keyframes darksky{
+    0%{
+        --sunset:70%;
+        --night:1;
+        --start-night:150%
+    }
+    50%{
+        --sunset:35%;
+        --night:0.5;
+        --start-night:75%
+    }
+    100%{
+        --sunset:0%;
+        --night:0;
+        --start-night:0%
+    }
+    
+}
+
+
+
+@property --firstlight{
+    syntax: "<percentage>";
+    initial-value: 200%;
+    inherits: false;
+}
+
+.lightsky{
+    background-image: radial-gradient(circle at bottom,#a73030 0%,rgb(217, 131, 36, var(--night)) var(--sunset),rgb(1, 1, 99) var(--start-night), transparent);
+    animation: lightsky 1s linear forwards;
+}
+
+@keyframes lightsky{
+    0%{
+        --sunset:0%;
+        --night:0;
+        --start-night:0%;
+    }
+    50%{
+        --sunset:35%;
+        --night:0.5;
+        --start-night:75%;
+    }
+    100%{
+        --sunset:70%;
+        --night:1;
+        --start-night:150%;
+    }
+}
+
+
+
+.ocean{
+    background-image: var(--ocean);
+}
+
+.sun{
+    width: 10vw;
+    height: 10vw;
+    background-color: orange;
+    border-radius: 50%;
+    background-image: linear-gradient(315deg, #a40606 0%, #d98324 70%);
+    box-shadow: 0 0 210px 10px rgba(255, 166, 0, 0.747);
+    transform: translateY(-10vh);
+}
+
+.set{
+    animation: set 1s linear forwards;
+}
+
+.rise{
+    transform: translateY(10vw);
+    animation: rise 1s linear forwards;
+}
+
+
+@keyframes set{
+    to{
+        transform: translateY(15vw);
+    }
+}
+@keyframes rise{
+    to{
+        transform: translateY(-10vh);
+    }
+}
+
+
+.star{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    height: 0.25vw;
+    width: 0.25vw;
+    box-shadow: 0 0 210px 5px white;
+    animation: drift 10s linear infinite;
+}
+
+.night{
+    display: block;
+    /*animation: fade-in 2s linear forwards;*/
+}
+
+@keyframes drift{
+    to{
+        transform: translate(10vh,-10vh);
+    }
+}
+
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.success{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--success-banner);
+    backdrop-filter: blur(5px);
+    color: var(--text-accent);
+    opacity: 0.1;
+    animation: fade-in 1s linear forwards;
+}
+
+@keyframes fade-in{
+    to{
+        opacity: 1;
+    }
+}
+
+.inprogress{
+    display: none;
+}
+
+
+
+*{
+    padding: none;
+    margin: none;
+}
+
+.content{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    justify-items: center;
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.boardContainer{
+    border: solid var(--border-colour) 1px;
+    width: 40vw;
+    min-width: 350px;
+    height: 40vw;
+    min-height: 350px;
+    grid-template-rows: repeat(9, 4.44vw);
+    justify-items: center;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(9, 4.44vw);
+}
+
+
+.cell{
+    font-size: 2.5vw;
+    border: solid var(--border-colour) 1px;
+    width: 4.44vw !important;
+    min-width: 38.88px;
+    height: 4.44vw;
+    min-height: 38.88px;
+    display: grid;
+    align-items: center;
+    background-color: var(--cell-colour);
+    font-family: Poppins;
+}
+
+.cell:hover{
+    cursor: pointer;
+}
+
+.active{
+    background-color: var(--highlight-colour);
+}
+
+.correctAnswer{
+    color: var(--text-accent);
+}
+
+.wrongAnswer{
+    color: red;
+}
+
+.consoleContainer{
+    width: fit-content;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.button{
+    align-self: flex-start;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button svg:last-child{
+    display: none;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.darkmode .button svg:last-child{
+    display: block;
+}
+
+.darkmode .button svg:first-child{
+    display: none;
+}
+
+.keypad{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:0.5vw;
+}
+
+.key{
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: solid rgba(255, 255, 255, 0.2) 1px;
+    backdrop-filter: blur(2px);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    font-size: 2.5vw;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    font-family: Poppins;
+}
+.key:hover{
+    cursor: pointer;
+}
+
+.key:active{
+    backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 730px) {
+  .keypad{
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .cell, .key{
+    font-size: 5vw;
+  }
+}
