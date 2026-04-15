@@ -4,7 +4,7 @@ Sudoku is a puzzle game where a player must fill the gaps of a 9x9 grid of numbe
 <br>
 This was a fun project where I created a web application featuring this game that I had taken an interest in. I also saw this as an opportunity to try out an interesting and novel concept of an interactive background. 
 <br>
-Live demo: https://michyhems.github.io/Sudoku/
+[Live demo](https://michyhems.github.io/Sudoku/) | [GitHub repository] (https://github.com/michyhems/Sudoku)
 ## Requirements
 * A randomised, partially filled game must be generated at each refresh.
 * Each new game must be solvable
