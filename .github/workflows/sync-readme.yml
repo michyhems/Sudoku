@@ -1,0 +1,20 @@
+name: Trigger DB Sync
+
+on:
+    push:
+        paths:
+            - "README.md"
+
+jobs:
+    trigger-sync:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Trigger backend sync
+              run: |
+                  curl --fail -X POST ${{ secrets.API_URL }}/sync \
+                    -H "Content-Type: application/json" \
+                    -H "Authorization: Bearer ${{ secrets.API_KEY }}" \
+                    -d '{
+                      "repo": "${{ github.event.repository.name }}"
+                    }'
